@@ -132,7 +132,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
         >
           <button
             onClick={resetForm}
-            className="bg-[#e5ff00] text-black px-6 py-2 rounded-[12] font-semibold hover:bg-opacity-90 transition-all"
+            className="bg-[#e5ff00] text-black px-6 py-2 rounded-[12px] font-semibold hover:bg-opacity-90 transition-all"
             type="button"
           >
             Join with another email
@@ -155,13 +155,13 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f3a6e7]"
+                  className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12px] focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#f3a6e7]"
                   disabled={loading}
                   required
                 />
                 <button
                   type="submit"
-                  className="absolute right-0 font-semibold top-0 bottom-0 bg-[#f3a6e7] flex justify-center items-center cursor-pointer text-black px-5 py-2 m-2 rounded-[12] hover:bg-opacity-90 transition-all disabled:opacity-50"
+                  className="absolute right-0 font-semibold top-0 bottom-0 bg-[#f3a6e7] flex justify-center items-center cursor-pointer text-black px-5 py-2 m-2 rounded-[12px] hover:bg-opacity-90 transition-all disabled:opacity-50"
                   disabled={loading}
                 >
                   Continua
@@ -182,13 +182,13 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Name"
-                    className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12]  focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#e5ff00]"
+                    className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12px] focus:outline-1 transition-all duration-300 focus:outline-offset-4 focus:outline-[#e5ff00]"
                     disabled={loading}
                     required
                   />
                   <button
                     type="submit"
-                    className="absolute right-0 font-semibold top-0 bottom-0 bg-[#e5ff00] flex justify-center items-center cursor-pointer text-black px-5 py-2 m-2 rounded-[12] hover:bg-opacity-90 transition-all disabled:opacity-50"
+                    className="absolute right-0 font-semibold top-0 bottom-0 bg-[#e5ff00] flex justify-center items-center cursor-pointer text-black px-5 py-2 m-2 rounded-[12px] hover:bg-opacity-90 transition-all disabled:opacity-50"
                     disabled={loading}
                   >
                     {loading ? (
