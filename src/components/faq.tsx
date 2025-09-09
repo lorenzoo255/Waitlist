@@ -10,7 +10,6 @@ import { useState, useEffect } from "react";
 export default function Faq() {
   const [vh, setVh] = useState<number>(0);
 
-  // Aggiorna altezza viewport visibile reale
   useEffect(() => {
     const updateVh = () => setVh(window.innerHeight);
     updateVh();
@@ -30,39 +29,44 @@ export default function Faq() {
           Domande Frequenti
         </h2>
         <p className="text-sm sm:text-base text-muted-foreground text-center mt-2">
-          Scopri tutto quello che c'è da sapere su Reviu' e su come può aiutare
+          Scopri tutto quello che c&apos;è da sapere su Reviu&apos; e su come può aiutare
           la tua attività a crescere.
         </p>
       </div>
 
       {/* Accordion FAQ */}
       <div className="w-full max-w-lg px-4 sm:px-6 mt-8">
-        <AccordionItem value="item-1" className="border-border">
-          <AccordionTrigger className="hover:no-underline px-4 py-3 text-left">
-            Come è nato Reviu' e qual è la sua missione?
-          </AccordionTrigger>
-          <AccordionContent className="text-muted-foreground px-4 pb-3">
-            Reviu' nasce da un'idea semplice trasformare il feedback in un'esperienza unica. La missione? Aiutare le attività a crescere... ma in un modo diverso dal solito.
-          </AccordionContent>
-        </AccordionItem>
-        
-        <AccordionItem value="item-2" className="border-border">
-          <AccordionTrigger className="hover:no-underline px-4 py-3 text-left">
-            In che modo Reviu' migliora l'esperienza dei clienti?
-          </AccordionTrigger>
-          <AccordionContent className="text-muted-foreground px-4 pb-3">
-            Non è solo una recensione è un piccolo gioco, un momento piacevole che lascia un segno. I clienti partecipano volentieri… e tu raccogli molto di più di un semplice voto.
-          </AccordionContent>
-        </AccordionItem>
-        
-        <AccordionItem value="item-3" className="border-border">
-          <AccordionTrigger className="hover:no-underline px-4 py-3 text-left">
-            È complicato iniziare a usare Reviu'?
-          </AccordionTrigger>
-          <AccordionContent className="text-muted-foreground px-4 pb-3">
-            Per niente. Una volta installato il nostro espositore, il resto viene da sé. Il difficile sarà solo abituarsi ai risultati.
-          </AccordionContent>
-        </AccordionItem>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1" className="border-border">
+            <AccordionTrigger className="hover:no-underline px-4 py-3 text-left">
+              Come è nato Reviu&apos; e qual è la sua missione?
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground px-4 pb-3">
+              Reviu&apos; nasce da un&apos;idea semplice: trasformare il feedback in un&apos;esperienza unica. 
+              La missione? Aiutare le attività a crescere... ma in un modo diverso dal solito.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-2" className="border-border">
+            <AccordionTrigger className="hover:no-underline px-4 py-3 text-left">
+              In che modo Reviu&apos; migliora l&apos;esperienza dei clienti?
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground px-4 pb-3">
+              Non è solo una recensione, è un piccolo gioco, un momento piacevole che lascia un segno. 
+              I clienti partecipano volentieri… e tu raccogli molto di più di un semplice voto.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-3" className="border-border">
+            <AccordionTrigger className="hover:no-underline px-4 py-3 text-left">
+              È complicato iniziare a usare Reviu&apos;?
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground px-4 pb-3">
+              Per niente. Una volta installato il nostro espositore, il resto viene da sé. 
+              Il difficile sarà solo abituarsi ai risultati.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </div>
   );
