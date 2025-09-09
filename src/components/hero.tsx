@@ -51,8 +51,10 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
       </div>
 
       {/* Persone in lista */}
-      <div className="flex items-center justify-center gap-2 px-4 mt-2">
-        <People count={waitlistPeople} />
+      <div className="w-full flex justify-center px-4 mt-2">
+        <div className="flex justify-center">
+          <People count={waitlistPeople} />
+        </div>
       </div>
 
       {/* Indicatore di scroll */}
