@@ -10,8 +10,8 @@ interface PeopleProps {
 }
 
 export default function People({
-  count = 12500,
-  initialCount = 12000,
+  count = 200,
+  initialCount = 200,
   className = "",
 }: PeopleProps) {
   const [displayCount, setDisplayCount] = useState(initialCount);
