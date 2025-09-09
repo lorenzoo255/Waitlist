@@ -63,9 +63,9 @@ export default function People({
 
 	return (
 		<motion.div
-			className={`flex items-center justify-center gap-2 py-2 px-4 ${className}`}
-			animate={controls}
-			transition={{ duration: 0.6 }}
+		  className={`flex items-center justify-center gap-2 py-2 px-4 w-full ${className}`}
+		  animate={controls}
+		  transition={{ duration: 0.6 }}
 		>
 			<div className="flex -space-x-2 mr-3">
 				{avatars.map((avatar, index) => (
