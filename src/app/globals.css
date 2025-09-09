@@ -135,6 +135,7 @@ html {
 body {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch; /* Aggiunto per scroll fluido su iOS */
 }
 
 /* Migliora l'esperienza su mobile */
@@ -142,6 +143,16 @@ body {
   html {
     scroll-padding-top: 0.5rem;
     scroll-snap-type: y proximity;
+  }
+  
+  /* Rimuove il comportamento di scroll snap su mobile */
+  body, html {
+    scroll-snap-type: none !important;
+  }
+  
+  /* Assicura che gli elementi non forzino lo scroll snap */
+  .min-h-screen {
+    scroll-snap-align: none !important;
   }
 }
 

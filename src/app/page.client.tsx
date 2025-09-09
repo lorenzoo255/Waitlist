@@ -17,13 +17,13 @@ export function LandingPage({ waitlistPeople }: { waitlistPeople: number }) {
         manualstart={true}
       />
       
-      {/* Hero Section - Centrale e a tutta altezza con snap */}
-      <div className="min-h-screen flex items-center justify-center py-4 md:py-10 snap-start">
+      {/* Hero Section - Centrale e a tutta altezza */}
+      <div className="min-h-screen flex items-center justify-center py-4 md:py-10">
         <Hero waitlistPeople={waitlistPeople} />
       </div>
       
-      {/* FAQ Section - Visibile solo quando si scrolla con snap */}
-      <div className="min-h-screen flex items-center justify-center py-4 md:py-10 snap-start">
+      {/* FAQ Section - Visibile solo quando si scrolla */}
+      <div className="min-h-screen flex items-center justify-center py-4 md:py-10">
         <Faq />
       </div>
     </main>
