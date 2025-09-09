@@ -2,23 +2,16 @@
 import { useState, useEffect } from "react";
 import People from "./people";
 import { Logo } from "./svgs";
-import Form from "./form"; // Aggiungi questa importazione
+import Form from "./form";
 
 export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
   const year = 2025;
   const [isSuccess, setIsSuccess] = useState(false);
   const [vh, setVh] = useState<number>(0);
 
-  const handleSuccessChange = (success: boolean) => {
-    setIsSuccess(success);
-  };
-
   // Aggiorna l'altezza visibile reale della viewport
   useEffect(() => {
-    const updateVh = () => {
-      const vh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--vh')) * 100;
-      setVh(vh || window.innerHeight);
-    };
+    const updateVh = () => setVh(window.innerHeight);
     updateVh();
     window.addEventListener("resize", updateVh);
     return () => window.removeEventListener("resize", updateVh);
@@ -55,18 +48,6 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
             ? "Hai riservato con successo il tuo posto. Ti avviseremo non appena lanceremo Reviu'."
             : "La voce dei tuoi clienti, la crescita del tuo business, la ricompensa per la loro fedeltà."}
         </p>
-      </div>
-
-      {/* AGGIUNGI IL FORM QUI */}
-      <div className="w-full max-w-md mt-6">
-        <Form onSuccessChange={handleSuccessChange} />
-      </div>
-
-      {/* Persone in lista */}
-      <div className="w-full flex justify-center px-4 mt-6">
-        <div className="flex justify-center">
-          <People count={waitlistPeople} />
-        </div>
       </div>
 
       {/* Indicatore di scroll */}

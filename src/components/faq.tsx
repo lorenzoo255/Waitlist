@@ -10,13 +10,9 @@ import { useState, useEffect } from "react";
 export default function Faq() {
   const [vh, setVh] = useState<number>(0);
 
+  // Aggiorna altezza viewport visibile reale
   useEffect(() => {
-    const updateVh = () => {
-      // Usa il valore CSS personalizzato per un'altezza più affidabile su mobile
-      const vh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--vh')) * 100;
-      setVh(vh || window.innerHeight);
-    };
-    
+    const updateVh = () => setVh(window.innerHeight);
     updateVh();
     window.addEventListener("resize", updateVh);
     return () => window.removeEventListener("resize", updateVh);
@@ -25,11 +21,11 @@ export default function Faq() {
   return (
     <div
       id="faq"
-      style={{ minHeight: vh }}
-      className="flex flex-col items-center justify-center w-full px-4 sm:px-6 md:px-8 bg-background py-10"
+      style={{ height: vh }}
+      className="flex flex-col items-center justify-center w-full px-4 sm:px-6 md:px-8 bg-background"
     >
       {/* Titolo e descrizione */}
-      <div className="flex flex-col items-center justify-center gap-2 max-w-md text-center px-4 mb-8">
+      <div className="flex flex-col items-center justify-center gap-2 max-w-md text-center px-4">
         <h2 className="text-2xl sm:text-3xl font-semibold text-foreground">
           Domande Frequenti
         </h2>
@@ -40,35 +36,32 @@ export default function Faq() {
       </div>
 
       {/* Accordion FAQ */}
-      <div className="w-full max-w-lg px-4 sm:px-6 space-y-4">
-        <Accordion type="single" collapsible className="space-y-4">
-          <AccordionItem value="item-1" className="border-border rounded-lg overflow-hidden border">
-            <AccordionTrigger className="hover:no-underline px-4 py-4 text-left flex items-center">
+      <div className="w-full max-w-lg px-4 sm:px-6 mt-8">
+        <Accordion type="single" collapsible className="w-full flex flex-col gap-3">
+          <AccordionItem value="item-1" className="border-border">
+            <AccordionTrigger className="hover:no-underline px-4 py-3 text-left">
               Come è nato Reviu' e qual è la sua missione?
             </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground px-4 pb-4">
-              Reviu' nasce da un'idea semplice: trasformare il feedback in un'esperienza unica. 
-              La missione? Aiutare le attività a crescere... ma in un modo diverso dal solito.
+            <AccordionContent className="text-muted-foreground px-4 pb-3">
+              Reviu' nasce dall'esperienza di chi ha sentito la necessità di ottenere feedback autentici dai propri clienti. La nostra missione è aiutare le attività a crescere, migliorando la qualità del servizio e la presenza digitale, attraverso un coinvolgimento attivo e divertente dei clienti nel processo di miglioramento.
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="item-2" className="border-border rounded-lg overflow-hidden border">
-            <AccordionTrigger className="hover:no-underline px-4 py-4 text-left flex items-center">
+          <AccordionItem value="item-2" className="border-border">
+            <AccordionTrigger className="hover:no-underline px-4 py-3 text-left">
               In che modo Reviu' migliora l'esperienza dei clienti?
             </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground px-4 pb-4">
-              Non è solo una recensione, è un piccolo gioco, un momento piacevole che lascia un segno. 
-              I clienti partecipano volentieri… e tu raccogli molto di più di un semplice voto.
+            <AccordionContent className="text-muted-foreground px-4 pb-3">
+              La piattaforma permette ai tuoi clienti di lasciare recensioni in maniera semplice e piacevole, con la possibilità di ricevere incentivi e premi per la loro partecipazione. In questo modo si arricchisce la loro esperienza e si rafforza il legame con la tua attività.
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="item-3" className="border-border rounded-lg overflow-hidden border">
-            <AccordionTrigger className="hover:no-underline px-4 py-4 text-left flex items-center">
+          <AccordionItem value="item-3" className="border-border">
+            <AccordionTrigger className="hover:no-underline px-4 py-3 text-left">
               È complicato iniziare a usare Reviu'?
             </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground px-4 pb-4">
-              Per niente. Una volta installato il nostro espositore, il resto viene da sé. 
-              Il difficile sarà solo abituarsi ai risultati.
+            <AccordionContent className="text-muted-foreground px-4 pb-3">
+              Assolutamente no! Ti basterà posizionare un nostro espositore all'interno del tuo locale e il sistema sarà subito pronto. Da quel momento non dovrai fare altro che goderti i benefici che Reviu' porterà alla tua attività.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
