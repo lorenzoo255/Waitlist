@@ -2,17 +2,20 @@
 import { useState, useEffect } from "react";
 import People from "./people";
 import { Logo } from "./svgs";
-import Form from "./form";
+import Form from "./form"; // Aggiungi questa importazione
 
 export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
   const year = 2025;
   const [isSuccess, setIsSuccess] = useState(false);
   const [vh, setVh] = useState<number>(0);
 
+  const handleSuccessChange = (success: boolean) => {
+    setIsSuccess(success);
+  };
+
   // Aggiorna l'altezza visibile reale della viewport
   useEffect(() => {
     const updateVh = () => {
-      // Usa il valore CSS personalizzato per un'altezza più affidabile su mobile
       const vh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--vh')) * 100;
       setVh(vh || window.innerHeight);
     };
@@ -54,8 +57,13 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
         </p>
       </div>
 
+      {/* AGGIUNGI IL FORM QUI */}
+      <div className="w-full max-w-md mt-6">
+        <Form onSuccessChange={handleSuccessChange} />
+      </div>
+
       {/* Persone in lista */}
-      <div className="w-full flex justify-center px-4 mt-2">
+      <div className="w-full flex justify-center px-4 mt-6">
         <div className="flex justify-center">
           <People count={waitlistPeople} />
         </div>
