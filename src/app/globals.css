@@ -122,37 +122,42 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    height: 100%;
+    overflow: hidden; /* Previene lo scroll nativo */
+  }
+  
+  html {
+    height: 100%;
+    overflow: hidden;
   }
 }
 
-/* Scroll smooth e scroll snap */
-html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 1rem;
-}
-
-body {
+/* Container principale per lo scroll snap */
+.scroll-container {
+  height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch; /* Aggiunto per scroll fluido su iOS */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Scroll fluido su iOS */
+}
+
+/* Sezioni con snap */
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  position: relative;
 }
 
 /* Migliora l'esperienza su mobile */
 @media (max-width: 768px) {
-  html {
-    scroll-padding-top: 0.5rem;
+  .scroll-container {
     scroll-snap-type: y proximity;
   }
   
-  /* Rimuove il comportamento di scroll snap su mobile */
-  body, html {
-    scroll-snap-type: none !important;
-  }
-  
-  /* Assicura che gli elementi non forzino lo scroll snap */
-  .min-h-screen {
-    scroll-snap-align: none !important;
+  /* Forza il viewport height su mobile */
+  .snap-section {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
   }
 }
 

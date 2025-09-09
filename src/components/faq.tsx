@@ -12,9 +12,9 @@ export default function Faq() {
 
   useEffect(() => {
     const updateVh = () => {
-      // Imposta l'altezza minima per evitare problemi su mobile
-      const vh = Math.max(window.innerHeight, 600);
-      setVh(vh);
+      // Usa il valore CSS personalizzato per un'altezza più affidabile su mobile
+      const vh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--vh')) * 100;
+      setVh(vh || window.innerHeight);
     };
     
     updateVh();

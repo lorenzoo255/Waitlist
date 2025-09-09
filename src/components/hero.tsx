@@ -11,7 +11,11 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
 
   // Aggiorna l'altezza visibile reale della viewport
   useEffect(() => {
-    const updateVh = () => setVh(window.innerHeight);
+    const updateVh = () => {
+      // Usa il valore CSS personalizzato per un'altezza più affidabile su mobile
+      const vh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--vh')) * 100;
+      setVh(vh || window.innerHeight);
+    };
     updateVh();
     window.addEventListener("resize", updateVh);
     return () => window.removeEventListener("resize", updateVh);
@@ -55,6 +59,11 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
         <div className="flex justify-center">
           <People count={waitlistPeople} />
         </div>
+      </div>
+
+      {/* Form */}
+      <div className="w-full mt-6">
+        <Form onSuccessChange={setIsSuccess} />
       </div>
 
       {/* Indicatore di scroll */}
