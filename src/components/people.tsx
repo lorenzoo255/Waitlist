@@ -10,8 +10,8 @@ interface PeopleProps {
 }
 
 export default function People({
-	count = 200,
-	initialCount = 200,
+	count = 12500,
+	initialCount = 12000,
 	className = "",
 }: PeopleProps) {
 	const [displayCount, setDisplayCount] = useState(initialCount);
@@ -63,11 +63,12 @@ export default function People({
 
 	return (
 		<motion.div
-		  className={`flex items-center justify-center gap-2 py-2 px-4 w-full ${className}`}
-		  animate={controls}
-		  transition={{ duration: 0.6 }}
+			className={`flex flex-col items-center justify-center gap-3 py-2 px-4 ${className}`}
+			animate={controls}
+			transition={{ duration: 0.6 }}
 		>
-			<div className="flex -space-x-2 mr-3">
+			{/* Avatar group - ora centrato */}
+			<div className="flex -space-x-2">
 				{avatars.map((avatar, index) => (
 					<div
 						key={avatar.id}
@@ -86,7 +87,9 @@ export default function People({
 					</div>
 				))}
 			</div>
-			<motion.div className="text-sm md:text-base text-muted-foreground">
+			
+			{/* Text - ora centrato sotto gli avatar */}
+			<motion.div className="text-sm md:text-base text-muted-foreground text-center">
 				Join{" "}
 				<motion.span
 					className="font-semibold text-foreground"
